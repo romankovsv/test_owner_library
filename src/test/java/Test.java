@@ -1,5 +1,7 @@
 import org.aeonbits.owner.ConfigCache;
 
+import static java.lang.System.*;
+
 public class Test {
 
     @org.testng.annotations.Test
@@ -7,18 +9,20 @@ public class Test {
 
         SystemConfig systemConfig = ConfigCache.getOrCreate(SystemConfig.class);
 
-        BaseConfig config = null;
+        BaseConfig config;
 
         if(systemConfig.env().equals("dev")){
             config = ConfigCache.getOrCreate(DevConfig.class);
-            System.out.println("Dev");
+            out.println("Dev");
         }else if(systemConfig.env().equals("local")){
             config = ConfigCache.getOrCreate(LocalConfig.class);
-            System.out.println("Local");
+            out.println("Local");
+        }else{
+            throw new RuntimeException(String
+                    .format("Unknown env:%s was selected",systemConfig.env()));
         }
 
-
-        System.out.println(config.port());
-        System.out.println(config.url());
+        out.println(config.port());
+        out.println(config.url());
     }
 }
