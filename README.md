@@ -1,4 +1,4 @@
-Test owner library project
+TestOwner owner library project
 
 by passing in maven system variable according
 properties file will be selected

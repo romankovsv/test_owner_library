@@ -1,10 +1,11 @@
 import org.aeonbits.owner.ConfigCache;
+import org.junit.jupiter.api.Test;
 
 import static java.lang.System.*;
 
-public class Test {
+public class TestOwner {
 
-    @org.testng.annotations.Test
+    @Test
     public void test(){
 
         SystemConfig systemConfig = ConfigCache.getOrCreate(SystemConfig.class);
